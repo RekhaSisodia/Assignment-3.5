@@ -1,0 +1,29 @@
+Assignment 3.5
+
+Ques1. Import the Titanic Dataset from the link Titanic Data Set.
+       Perform the following 
+a. Is there any difference in fares by different class of tickets.
+   Note: show a boxplot displaying the distribution of fares by class.
+
+      Titanic<-read.csv(file.choose())
+      library(ggplot2)
+      names(Titanic)
+      ggplot(Titanic,aes(x=factor(ï..pclass),y=fare))+
+      geom_boxplot(fill="Red",color="Blue")
+
+
+b.Is there any association with Passanger class and Gender?
+  Note: Show a stacked bar chart
+
+ count<-table(Titanic$sex,Titanic$ï..pclass)
+ cols=c("Red","Royal Blue")
+ barplot(count,
+        col=cols,
+        beside=TRUE,
+        legend.text=c("Female","Male"),
+        main="Class of Passanger with respect to Gender",
+        xlab="Gender of Passanger",
+        ylab="No. of Passangers",
+        las=1)
+ count
+
